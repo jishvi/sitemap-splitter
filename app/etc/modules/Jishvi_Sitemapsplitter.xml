@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jishvi_Sitemapsplitter>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+            	<Mage_Catalog/>
+                <Mage_Cms />
+                <Mage_Sitemap/>
+      		</depends>
+        </Jishvi_Sitemapsplitter>
+    </modules>
+</config>

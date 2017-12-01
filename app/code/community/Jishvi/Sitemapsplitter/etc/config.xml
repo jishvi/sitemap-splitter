@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jishvi_Sitemapsplitter>
+            <version>1.0</version>
+        </Jishvi_Sitemapsplitter>
+    </modules>
+     <frontend>
+        <routers>
+            <sitemapsplitter>
+                <use>standard</use>
+                <args>
+                    <module>Jishvi_Sitemapsplitter</module>
+                    <frontName>sitemapsplitter</frontName>
+                </args> 
+            </sitemapsplitter>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <sitemapsplitter>
+                <class>Jishvi_Sitemapsplitter_Model</class>
+            </sitemapsplitter>
+            <sitemap>
+               <rewrite>
+                   <sitemap>Jishvi_Sitemapsplitter_Model_Sitemap</sitemap>
+               </rewrite>
+           </sitemap>
+        </models>
+    </global>
+</config>

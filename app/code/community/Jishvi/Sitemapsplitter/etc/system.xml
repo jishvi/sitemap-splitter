@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <jishvi translate="label">
+            <label>Sitemap Splitter</label>
+            <sort_order>100</sort_order>
+        </jishvi>
+    </tabs>
+    <sections>
+        <sitemapsplitter translate="label">
+            <class>separator-top</class>
+            <label>General Settings </label>
+            <tab>jishvi</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>140</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Sitemap Splitter Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <module_enable_disable translate="label">
+                            <label>Sitemap Splitter  Enabled</label>    
+                            <comment>Select Yes to enable this module</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </module_enable_disable>                
+                        
+                        <numrecord translate="label">
+                            <label>Sitemap limit</label>    
+                            <comment>Number of URLs in a sitemap. A sitemap can only have 50000 URLs. So this number should be less than or equal to 50000.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-number</validate>
+                            <depends><module_enable_disable>1</module_enable_disable></depends> 
+                        </numrecord> 
+                    </fields>
+                </general>
+            </groups>
+        </sitemapsplitter>
+    </sections>
+</config>
