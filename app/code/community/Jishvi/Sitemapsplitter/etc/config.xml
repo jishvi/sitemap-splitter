@@ -2,17 +2,17 @@
 <config>
     <modules>
         <Jishvi_Sitemapsplitter>
-            <version>1.0</version>
+            <version>1.1</version>
         </Jishvi_Sitemapsplitter>
     </modules>
-     <frontend>
+    <frontend>
         <routers>
             <sitemapsplitter>
                 <use>standard</use>
                 <args>
                     <module>Jishvi_Sitemapsplitter</module>
                     <frontName>sitemapsplitter</frontName>
-                </args> 
+                </args>
             </sitemapsplitter>
         </routers>
     </frontend>
@@ -22,10 +22,15 @@
                 <class>Jishvi_Sitemapsplitter_Model</class>
             </sitemapsplitter>
             <sitemap>
-               <rewrite>
-                   <sitemap>Jishvi_Sitemapsplitter_Model_Sitemap</sitemap>
-               </rewrite>
-           </sitemap>
+                <rewrite>
+                    <sitemap>Jishvi_Sitemapsplitter_Model_Sitemap</sitemap>
+                </rewrite>
+            </sitemap>
         </models>
+        <helpers>
+            <sitemapsplitter>
+                <class>Jishvi_Sitemapsplitter_Helper</class>
+            </sitemapsplitter>
+        </helpers>
     </global>
 </config>
