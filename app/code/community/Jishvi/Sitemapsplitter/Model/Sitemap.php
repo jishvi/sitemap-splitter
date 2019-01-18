@@ -5,7 +5,7 @@
  */
 class Jishvi_Sitemapsplitter_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
 {
-   
+
     protected $numRecords = 50000;
     protected $counter;
     protected $sitemapsplitter_enabled;
@@ -19,7 +19,7 @@ class Jishvi_Sitemapsplitter_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
             $this->numRecords  = Mage::getStoreConfig('sitemapsplitter/general/numrecord');
             if( $this->numRecords > 50000) {
                 Mage::getSingleton('adminhtml/session')->addNotice(
-                    Mage::helper('sitemap')->__('Number of URLs in sitemap is more than 50000!'));
+                    Mage::helper('sitemapsplitter')->__('Number of URLs in sitemap is more than 50000!'));
             }
         }
     }
@@ -37,7 +37,7 @@ class Jishvi_Sitemapsplitter_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
         $io->open(array('path' => $this->getPath()));
 
         if ($io->fileExists($this->getSitemapFilename()) && !$io->isWriteable($this->getSitemapFilename())) {
-            Mage::throwException(Mage::helper('sitemap')->__('File "%s" cannot be saved. Please, make sure the directory "%s" is writeable by web server.', $this->getSitemapFilename(), $this->getPath()));
+            Mage::throwException(Mage::helper('sitemapsplitter')->__('File "%s" cannot be saved. Please, make sure the directory "%s" is writeable by web server.', $this->getSitemapFilename(), $this->getPath()));
         }
 
         $io->streamOpen($this->getSitemapFilename());
@@ -138,14 +138,14 @@ class Jishvi_Sitemapsplitter_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
                 $io->streamWrite('</urlset>');
                 $io->streamClose();
                 $newSiteMapName = preg_replace('/\.xml/', '-'.
-                     round($this->counter/$this->numRecords).
-                     '.xml', $this->getSitemapFilename());
+                    round($this->counter/$this->numRecords).
+                    '.xml', $this->getSitemapFilename());
                 $io->streamOpen($newSiteMapName);
                 $io->streamWrite('<?xml version="1.0" encoding="UTF-8"?>'."\n");
                 $io->streamWrite('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-                 Mage::getSingleton('adminhtml/session')->addSuccess(
-                    Mage::helper('sitemap')->__('The sitemap "%s" has been generated.',$newSiteMapName));
-                
+                Mage::getSingleton('adminhtml/session')->addSuccess(
+                    Mage::helper('sitemapsplitter')->__('The sitemap "%s" has been generated.',$newSiteMapName));
+
             }
         }
     }
